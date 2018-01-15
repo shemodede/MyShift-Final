@@ -1,0 +1,43 @@
+#table_info{
+    width: 100%;
+
+}
+
+.shift_swap_img{
+    border-radius: 20%;
+    height: 60px;
+    width: 60px;
+   
+    float: right;
+}
+
+.status_view{
+    float: right;
+    display: inline-block;
+}
+
+.request_name{
+    display: inline-block;
+}
+.request_img{
+    display: inline-block;
+    float: right;
+}
+
+.header-holder{
+    display: inline-block;
+}
+
+.status_label_text{
+    color: graytext;
+}
+
+.table_cell{
+    border-right: solid;
+    border-right-color: grey;
+    padding-right: 20px;
+}
+
+.table_column_2{
+    padding-left: 20px;
+}
