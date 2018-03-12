@@ -19,6 +19,7 @@ $(document).ready(function () {
     $('#select_shifts').change(function () {
 
         var list_id = $('#select_shifts').val();
+        alert(list_id);
         $.ajax({
             url: 'dashboard_scripts/load_reports.php',
             type: 'post',

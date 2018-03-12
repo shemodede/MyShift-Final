@@ -6,7 +6,7 @@ $company_id = $_SESSION['user_info'][6];
 $user_id = $_SESSION['user_info'][0];
 
 $result;
-$shift_week_info = "SELECT id, start_date, end_date FROM compiled_list WHERE company_id = '$company_id'";
+$shift_week_info = "SELECT id, start_date, end_date FROM compiled_list WHERE completed = 1 AND company_id = '$company_id'";
 $shift_week_info_result = mysqli_query($db, $shift_week_info);
 $result = "<option value='blank'>[Select List]</option>";
 if ($shift_week_info_result) {

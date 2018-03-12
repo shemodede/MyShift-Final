@@ -213,31 +213,54 @@ include 'session_header.php';
                                         <h5 class="card-title">Swap Information</h5>
                                         <form id="example-form" action="#">
                                             <div>
-                                                <h3>Select Date</h3>
+                                                <h3>Swap Party 1</h3>
                                                 <section>
                                                     <div class="col-lg-6">
                                                         <div class="card">
                                                             <div class="card-body shiftdate_holder">
-                                                                <h1>Shift Dates</h1>
+                                                                <h1>Shift Date</h1>
                                                                 <table id="table_dates">
                                                                     <tr>
                                                                         <td>
-                                                                            <label for="shift_week"><strong>Shift List</strong></label>
+                                                                            <label for="shift_week_select_party_1"><strong>Shift List</strong></label>
                                                                         </td>
                                                                         <td>
-                                                                            <select  name="shift_week" id="shift_week_select" value="" >
+                                                                            <select  name="shift_week_party_1" id="shift_week_select_party_1" value="" >
 
                                                                             </select>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <label for="shift_date_select"><strong>Shift Date</strong></label>
+                                                                            <label for="shift_date_select_party_1"><strong>Shift Date</strong></label>
                                                                         </td>
                                                                         <td>
-                                                                            <select name="shift_date_select_select" id="shift_date_select" value=""  >
+                                                                            <select name="shift_date_select_party_1" id="shift_date_select_party_1" value="">
                                                                                 <option value="blank">[Select Date]</option>
                                                                             </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <div class="card-body shiftpersonnel_holder">
+                                                                <h1>Current Shift</h1>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td align="centre">
+                                                                            <label for="shift_party_1_select">Swap Party 1</label>
+                                                                            <select name="shift_party_1_select" id="shift_party_1_select">
+                                                                                <option value="blank">[Select Personnel]</option>
+                                                                            </select>
+                                                                        </td>
+                                                                       
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="centre">
+                                                                            <div class="swap_party_1">
+                                                                                Current Shift
+                                                                                <br>
+                                                                                <div id="curr_shift_party_1"></div>
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -245,54 +268,60 @@ include 'session_header.php';
                                                         </div>
                                                     </div>
                                                 </section>
-                                                <h3>Select Personnel</h3>
+                                                <h3>Swap Party 2</h3>
                                                 <section>
-                                                    <div class="form-group">
+                                                    <div class="col-lg-6">
+                                                        <div class="card">
+                                                            <div class="card-body shiftdate_holder">
+                                                                <h1>Shift Date</h1>
+                                                                <table id="table_dates">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label for="shift_week_select_party_2"><strong>Shift List</strong></label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select  name="shift_week_party_2" id="shift_week_select_party_2" value="" >
 
-                                                        <br>
-                                                        <br>
-
-                                                        <div>
-                                                            <table>
-                                                                <tr>
-                                                                    <td align="centre">
-                                                                        <label for="shift_party_1_select">Swap Party 1</label>
-                                                                        <select name="shift_party_1_select" id="shift_party_1_select">
-                                                                            <option value="blank">[Select Personnel]</option>
-                                                                        </select>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td align="centre">
-                                                                        <label for="shift_party_2_select">Swap Party 2</label>
-                                                                        <select name="shift_party_2_select" id="shift_party_2_select">
-                                                                            <option value="blank">[Select Personnel]</option>
-                                                                        </select>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align="centre">
-                                                                        <div class="swap_party_1">
-                                                                            Current Shift
-                                                                            <br>
-                                                                            <div id="curr_shift_party_1"></div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td align="centre">
-
-                                                                    </td>
-                                                                    <td align="centre">
-                                                                        <div class="swap_party_2">
-                                                                            Current Shift
-
-                                                                            <div id="curr_shift_party_2"></div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label for="shift_date_select_party_2"><strong>Shift Date</strong></label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select name="shift_date_select_party_2" id="shift_date_select_party_2" value=""  >
+                                                                                <option value="blank">[Select Date]</option>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <div class="card-body shiftpersonnel_holder">
+                                                                <h1>Current Shift</h1>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td align="centre">
+                                                                            <label for="shift_party_2_select">Swap Party 2</label>
+                                                                            <select name="shift_party_2_select" id="shift_party_2_select">
+                                                                                <option value="blank">[Select Personnel]</option>
+                                                                            </select>
+                                                                        </td>
+                                                                       
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="centre">
+                                                                            <div class="swap_party_2">
+                                                                                Current Shift
+                                                                                <br>
+                                                                                <div id="curr_shift_party_2"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
                                                         </div>
-
                                                     </div>
-
                                                 </section>
                                                 <h3>Confirm Swap</h3>
                                                 <section>
@@ -305,27 +334,24 @@ include 'session_header.php';
                                                         <table>
                                                             <tr>
                                                                 <td>
-                                                                    <div class="">
-                                                                        <label for="">Shift Party 1</label>
-
-                                                                    </div>
+                                                                    <label for="">Shift Party 1</label>
                                                                 </td>
                                                                 <td align="centre">
 
                                                                 </td>
                                                                 <td>
-                                                                    <label for=""2 >Shift Party </label>
+                                                                    <label for="">Shift Party 2</label>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <div id="party_1_user_name"></div>
+                                                                    <div id="party_1_user_name">Hi</div>
                                                                 </td>
                                                                 <td>
 
                                                                 </td>
                                                                 <td>
-                                                                    <div id="party_2_user_name"></div>
+                                                                    <p id="party_2_user_name">Name</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>

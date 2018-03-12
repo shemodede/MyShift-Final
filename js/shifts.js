@@ -48,7 +48,7 @@ $(document).ready(function () {
         var shift_role_group = $('#shift_role_group').val();
 
         if (shift_name && shift_start && shift_end && shift_duration && shift_role_group !== "" && shift_role_group !== 0) {
-            alert("Detected");
+           
             $.ajax({
                 url: 'dashboard_scripts/shifts_add_new_shift.php',
                 type: 'post',
@@ -64,7 +64,7 @@ $(document).ready(function () {
                                 $('#shifts_table').html(result);
                             }
                         });
-                        $('#largeModal').modal('close');
+                        $('#largeModal').modal('hide');
                     }
                 }
             });

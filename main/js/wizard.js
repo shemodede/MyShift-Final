@@ -127,6 +127,7 @@ var form = $("#example-form");
 
 
                     if (returned.success) {
+                        location.href = "create_shiftlist.php";
                         var firebaseRef = firebase.database().ref();
 
 
@@ -172,7 +173,6 @@ var form = $("#example-form");
 
 
 
-                        window.location.href = "create_shiftlist.php";
 //                            if (error) {
 //                                console.log("Data could not be saved.  " + error);
 //

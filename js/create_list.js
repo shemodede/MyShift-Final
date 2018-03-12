@@ -191,12 +191,12 @@ $(document).ready(function () {
         var tableArray = [];
 
 
-        var firebaseRef = firebase.database().ref();
-        var oneRef = firebaseRef.child("/" + company_id + "/reports_dates/" + shift_week_id);
-
-        oneRef.on('value', gotData, errData);
-
-        var key = [];
+//        var firebaseRef = firebase.database().ref();
+//        var oneRef = firebaseRef.child("/" + company_id + "/reports_dates/" + shift_week_id);
+//
+//        oneRef.on('value', gotData, errData);
+//
+//        var key = [];
 
 
         function errData(err) {
@@ -241,7 +241,7 @@ $(document).ready(function () {
 
 
 
-        $('table#table2 tr').each(function (index) {
+        $('table#table2 tr').each(function () {
             var arrayOfThisRow = [];
             var tableData = $(this).find('td');
             if (tableData.length > 0) {
@@ -255,27 +255,27 @@ $(document).ready(function () {
         var shift_list_display = [];
 
 
-        function gotData(data) {
-            //console.log(data.val());
-            var dates = data.val();
-            key = Object.keys(dates);
-            //console.log(key);
+//        function gotData(data) {
+//            console.log(data.val());
+//            var dates = data.val();
+//            key = Object.keys(dates);
+//            console.log(key);
 //            console.log("hi");
-
-
-
-
+//
+//
+//        }
+//
 
 
             $('table#table2 tr').each(function () {
-//            var combined_array = [[]];
-//            var shifts_array = [];
+            var combined_array = [[]];
+            var shifts_array = [];
 //            combined_array = Create2DArray(1);
 //             for (var i = 0; i < keys.length; i++)
 //            {
 //                combined_array[i][0] = keys[i];
 //            }
-                //console.log(combined_array);
+//                console.log(combined_array);
 
                 var user_id = "";
                 var shifts_array = [[]];
@@ -313,27 +313,28 @@ $(document).ready(function () {
                                 row_array.push(table_cell.attr('id'));
                             }
                             if (table_cell.hasClass('shift_values'))
+                            
                             {
 
                                 if (table_cell.children().length > 0) {
                                     var shift_id = table_cell.children().attr('id')[0];
                                     //console.log(key[index - 1]);
-                                    shifts_array.push([key[index - 1], shift_id]);
+                                    //shifts_array.push([key[index - 1], shift_id]);
                                     row_array.push(shift_id);
                                     shifts_array.push(values);
                                     var count = tableData.length - 2;
                                     
                                     
-                                    if(user_id !== ""){
-                                        var addShiftRef = firebaseRef.child("/" + company_id  + "/shift_list_display/" + shift_week_id + "/" + user_id + "/");
-                                        addShiftRef.child(key[index - 1]).set(table_cell.children().text() , function (error) {
-                                            if (error) {
-                                                console.log("Data could not be saved." + error);
-                                            } else {
-                                                console.log("Data saved successfully.");
-                                            }
-                                        });
-                                    }
+//                                    if(user_id !== ""){
+//                                        var addShiftRef = firebaseRef.child("/" + company_id  + "/shift_list_display/" + shift_week_id + "/" + user_id + "/");
+//                                        addShiftRef.child(key[index - 1]).set(table_cell.children().text() , function (error) {
+//                                            if (error) {
+//                                                console.log("Data could not be saved." + error);
+//                                            } else {
+//                                                console.log("Data saved successfully.");
+//                                            }
+//                                        });
+//                                    }
 //                                console.log(count);
 
                                 } else {
@@ -341,16 +342,16 @@ $(document).ready(function () {
                                     row_array.push("OFF");
                                     var count = tableData.length - 2;
 //                                console.log(count);
-                                    shifts_array.push([key[index - 1], "OFF"]);
+                                   // shifts_array.push([key[index - 1], "OFF"]);
                                     if(user_id !== ""){
-                                        var addShiftRef = firebaseRef.child("/" + company_id  + "/shift_list_display/" + shift_week_id + "/" + user_id + "/" );
-                                        addShiftRef.child(key[index - 1]).set("OFF" , function (error) {
-                                            if (error) {
-                                                console.log("Data could not be saved." + error);
-                                            } else {
-                                                console.log("Data saved successfully.");
-                                            }
-                                        });
+//                                        var addShiftRef = firebaseRef.child("/" + company_id  + "/shift_list_display/" + shift_week_id + "/" + user_id + "/" );
+//                                        addShiftRef.child(key[index - 1]).set("OFF" , function (error) {
+//                                            if (error) {
+//                                                console.log("Data could not be saved." + error);
+//                                            } else {
+//                                                console.log("Data saved successfully.");
+//                                            }
+//                                        });
                                     }
                                 }
                                 shift_count++;
@@ -379,11 +380,30 @@ $(document).ready(function () {
             });
 
             var array = JSON.stringify(full_hours_array_h);
-            //console.log(full_hours_array_h);
+            console.log(full_hours_array_h);
             var tableDataJson = JSON.stringify(tableArray);
+            
+                    $.ajax({
+            url: 'dashboard_scripts/save_shift_list.php',
+            type: 'post',
+            data: {full_hours_array: array, tablearray: tableDataJson},
+            success: function (returned) {
+
+            }
+        });
+        console.log(combined);
+//        var firebaseRef = firebase.database().ref();
+//        var weeksRef = firebaseRef.child(company_id + "/shift_list_display/" + shift_week_id);
+//        weeksRef.push().set(JSON.stringify(combined), function (error) {
+//            if (error) {
+//                alert("Data could not be saved." + error);
+//            } else {
+//                alert("Data saved successfully.");
+//            }
+//        });
 
 
-        }
+        
 
 
 
@@ -423,7 +443,7 @@ $(document).ready(function () {
 //                alert("Data saved successfully.");
 //            }
 //        });
-
+        
 
 
     });
